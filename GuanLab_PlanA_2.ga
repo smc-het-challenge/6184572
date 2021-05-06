@@ -1,0 +1,220 @@
+{
+    "a_galaxy_workflow": "true", 
+    "format-version": "0.1", 
+    "name": "GuanLab_PlanA_2", 
+    "steps": {
+        "1": {
+            "tool_id": null, 
+            "content_id": null, 
+            "uuid": "5a048daf-378b-4874-b125-5b3f2befe996", 
+            "tool_version": null, 
+            "outputs": [], 
+            "workflow_outputs": [], 
+            "annotation": "", 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "CNA_INPUT"
+                }
+            ], 
+            "tool_errors": null, 
+            "position": {
+                "top": 325, 
+                "left": 416.5
+            }, 
+            "tool_state": "{\"name\": \"CNA_INPUT\"}", 
+            "label": null, 
+            "type": "data_input", 
+            "id": 1, 
+            "name": "Input dataset"
+        }, 
+        "0": {
+            "tool_id": null, 
+            "content_id": null, 
+            "uuid": "49588556-4f80-4e12-b447-ec4704279655", 
+            "tool_version": null, 
+            "outputs": [], 
+            "workflow_outputs": [], 
+            "annotation": "", 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "VCF_INPUT"
+                }
+            ], 
+            "tool_errors": null, 
+            "position": {
+                "top": 225, 
+                "left": 395.5
+            }, 
+            "tool_state": "{\"name\": \"VCF_INPUT\"}", 
+            "label": null, 
+            "type": "data_input", 
+            "id": 0, 
+            "name": "Input dataset"
+        }, 
+        "3": {
+            "tool_id": "licl2", 
+            "content_id": "licl2", 
+            "uuid": "3fcc789e-c54a-4a5a-ac59-bfe0b7f4e4d9", 
+            "tool_version": "0.0.1", 
+            "outputs": [
+                {
+                    "type": "txt", 
+                    "name": "cellularity"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "no_clusters"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "proportions"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "assignments"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "co_clustering"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "phylogeny"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "ancestor"
+                }
+            ], 
+            "post_job_actions": {}, 
+            "workflow_outputs": [], 
+            "annotation": "", 
+            "input_connections": {
+                "input_vcf": {
+                    "output_name": "output", 
+                    "id": 0
+                }, 
+                "input_cellularity": {
+                    "output_name": "output", 
+                    "id": 2
+                }, 
+                "input_bat": {
+                    "output_name": "output", 
+                    "id": 1
+                }
+            }, 
+            "inputs": [], 
+            "tool_errors": null, 
+            "position": {
+                "top": 186, 
+                "left": 752.5
+            }, 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"input_bat\": \"null\", \"input_cellularity\": \"null\", \"input_vcf\": \"null\"}", 
+            "label": null, 
+            "type": "tool", 
+            "id": 3, 
+            "name": "GuanLab SMC-Het Plan A2"
+        }, 
+        "2": {
+            "tool_id": null, 
+            "content_id": null, 
+            "uuid": "eae2fbf6-963f-47d3-b0d2-b619105b17bb", 
+            "tool_version": null, 
+            "outputs": [], 
+            "workflow_outputs": [], 
+            "annotation": "", 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "CELLULARITY_INPUT"
+                }
+            ], 
+            "tool_errors": null, 
+            "position": {
+                "top": 416, 
+                "left": 400.5
+            }, 
+            "tool_state": "{\"name\": \"CELLULARITY_INPUT\"}", 
+            "label": null, 
+            "type": "data_input", 
+            "id": 2, 
+            "name": "Input dataset"
+        }, 
+        "4": {
+            "tool_id": "smc_het_eval", 
+            "content_id": "smc_het_eval", 
+            "uuid": "d6f2f32b-0d1a-45f8-8952-6c49063fc0dd", 
+            "tool_version": "0.1.0", 
+            "outputs": [
+                {
+                    "type": "txt", 
+                    "name": "outfile"
+                }
+            ], 
+            "post_job_actions": {
+                "RenameDatasetActionoutfile": {
+                    "output_name": "outfile", 
+                    "action_type": "RenameDatasetAction", 
+                    "action_arguments": {
+                        "newname": "OUTPUT"
+                    }
+                }
+            }, 
+            "workflow_outputs": [], 
+            "annotation": "", 
+            "input_connections": {
+                "cluster_assignment|predfile": {
+                    "output_name": "assignments", 
+                    "id": 3
+                }, 
+                "cellularity|predfile": {
+                    "output_name": "cellularity", 
+                    "id": 3
+                }, 
+                "cocluster_assignment|predfile": {
+                    "output_name": "co_clustering", 
+                    "id": 3
+                }, 
+                "cocluster_assignment|ancestor|predfile": {
+                    "output_name": "ancestor", 
+                    "id": 3
+                }, 
+                "proportion|predfile": {
+                    "output_name": "proportions", 
+                    "id": 3
+                }, 
+                "population|predfile": {
+                    "output_name": "no_clusters", 
+                    "id": 3
+                }, 
+                "cluster_assignment|phylogeny|predfile": {
+                    "output_name": "phylogeny", 
+                    "id": 3
+                }
+            }, 
+            "inputs": [
+                {
+                    "name": "sample", 
+                    "description": "runtime parameter for tool SMC-Het Evaluator"
+                }
+            ], 
+            "tool_errors": null, 
+            "position": {
+                "top": 274, 
+                "left": 1079
+            }, 
+            "tool_state": "{\"cocluster_assignment\": \"{\\\"ancestor\\\": {\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}, \\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\", \"__page__\": 0, \"approx\": \"{\\\"enable\\\": \\\"no\\\", \\\"__current_case__\\\": 1}\", \"__rerun_remap_job_id__\": null, \"proportion\": \"{\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\", \"sample\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"cellularity\": \"{\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\", \"cluster_assignment\": \"{\\\"predfile\\\": null, \\\"phylogeny\\\": {\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\", \"population\": \"{\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\"}", 
+            "label": null, 
+            "type": "tool", 
+            "id": 4, 
+            "name": "SMC-Het Evaluator"
+        }
+    }, 
+    "annotation": "", 
+    "uuid": "f28f0bc8-47a4-4645-ac36-0b89ba0c4998"
+}

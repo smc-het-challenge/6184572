@@ -1,0 +1,15 @@
+--- __init__.py.orig	2016-03-24 03:08:32.305979413 +0000
++++ __init__.py	2016-03-24 03:09:41.235967779 +0000
+@@ -552,7 +552,11 @@
+         # Some restricted platforms (such as Google App Engine) do not provide
+         # gettempdir.
+         return None
+-    tempdir = os.path.join(tempdir, 'matplotlib-%s' % getpass.getuser())
++    try:
++        username = getpass.getuser()
++    except KeyError:
++        username = str(os.getuid())
++    tempdir = os.path.join(tempdir, 'matplotlib-%s' % username)
+     os.environ['MPLCONFIGDIR'] = tempdir
+ 
+     mkdirs(tempdir)

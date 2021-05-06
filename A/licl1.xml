@@ -1,0 +1,32 @@
+<?xml version="1.0" ?><tool id="licl1" name="GuanLab SMC-Het Plan A1" version="0.0.1">
+	<description>GuanLab SMC-Het Plan A1</description>
+	<requirements>
+		<container type="docker">docker.synapse.org/syn2813581/6184572/guanlab_smchet</container>
+	</requirements>
+	<command interpreter="python3">licl.py ${input_vcf} ${input_bat}</command>
+
+	<inputs>
+		<param format="vcf" help="" label="VCF file" name="input_vcf" type="data"/>
+		<param format="txt" help="" label="Battenberg file" name="input_bat" type="data"/>
+	</inputs>
+
+	<outputs>
+		<data format="txt" from_work_dir="cellularity.txt" label="Cellularity (Sub Challenge 1A)" name="cellularity"/>
+		<data format="txt" from_work_dir="subclone_count.txt" label="Number Clusters (Sub Challenge 1B)" name="no_clusters"/>
+		<data format="txt" from_work_dir="prevalences.txt" label="Cluster Proportions (Sub Challenge 1C)" name="proportions"/>
+		<data format="txt" from_work_dir="assignments.txt" label="Cluster Assignments (Sub Challenge 2A)" name="assignments"/>
+		<data format="txt" from_work_dir="assignment_score.txt" label="Co-Cluster (Sub Challenge 2B)" name="co_clustering"/>
+		<data format="txt" from_work_dir="phylogeny.txt" label="Phylogeny (Sub Challenge 3A)" name="phylogeny"/>
+		<data format="txt" from_work_dir="phylogeny_score.txt" label="Ancestor-Descendent (Sub Challenge 3B)" name="ancestor"/>
+	</outputs>
+
+	<help>
+		N/A
+	</help>
+
+	<tests>
+		<test>
+		</test>
+	</tests>
+
+</tool>
